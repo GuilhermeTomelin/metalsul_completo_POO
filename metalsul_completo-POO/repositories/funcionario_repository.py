@@ -93,12 +93,27 @@ class FuncionarioRepository:
         )
         #bloco de tratamento de erro
         try:
-            self.db.cursor.execute(sql,valores)
+            self.db.cursor.execute(sql, valores)
             self.db.commit()
-            print("Funcionário cadastrado  com sucesso!")
+            print("Funcionário salvo com sucesso!")
         except Exception as erro:
             self.db.rollback()
-            print(f"Erro ao cadastrar funcionario! Erro: {erro}")
+            print(f"Erro ao salvar funcionário: {erro}")
+
+    def buscar_por_id(self, id_funcionario):
+        def __init__(self):
+                self.db = Conexao()
+
+        sql = """
+                SELECT id_funcionario, nome_funcionario from funcionario
+                WHERE id_funcionario = %s
+        """
+
+        try:
+            self.db.cursor.execute(sql, id_funcionario)
+            registro = self.db.cursor.fetchone()
+        except Exception as e:
+            print("Funcionario nao encontrado")
 
     def buscar_por_id(self, id_funcionario):
         pass
