@@ -1,22 +1,13 @@
 from repositories.funcionario_repository import FuncionarioRepository
 
 def main():
-
+    print("Iniciando o processo de exclusão...")
     repository = FuncionarioRepository()
 
-    funcionario = repository.buscar_por_id(1)
-
-    if funcionario:
-
-        print(funcionario)
-
-    else:
-
-        print("Funcionário não encontrado.")
+    repository.excluir(1)
 
     repository.fechar()
-
+    print("Conexão fechada e programa finalizado.")
 
 if __name__ == "__main__":
-
     main()
