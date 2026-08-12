@@ -1,6 +1,5 @@
 from database.conexao import Conexao
 from models.funcionario import Funcionario
-# Removida a linha duplicada que importava Funcionario de repositories
 
 class FuncionarioRepository:
     def __init__(self):
